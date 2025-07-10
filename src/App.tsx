@@ -1,29 +1,22 @@
 // App.tsx
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/home'; // funciona se o arquivo for "home.tsx"
+
+
 
 const App: React.FC = () => {
-  const [count, setCount] = React.useState<number>(0);
-
-  const handleClick = () => {
-    setCount(prev => prev + 1);
-  };
-
   return (
-    <div style={styles.container}>
-      <h1>Hello from TypeScript + React! 👋</h1>
-      <p>You clicked {count} times</p>
-      <button onClick={handleClick}>Click me</button>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        {/* Adicione outras rotas aqui, por exemplo: */}
+        {/* <Route path="/play" element={<Play />} /> */}
+        {/* <Route path="/tournaments" element={<Tournaments />} /> */}
+        {/* <Route path="/profile" element={<Profile />} /> */}
+      </Routes>
+    </Router>
   );
-};
-
-// Inline styles
-const styles: { [key: string]: React.CSSProperties } = {
-  container: {
-    textAlign: 'center',
-    padding: '2rem',
-    fontFamily: 'Arial, sans-serif',
-  }
 };
 
 export default App;
